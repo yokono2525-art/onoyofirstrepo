@@ -71,7 +71,7 @@ class Calculator {
         if (this.waitingForOperand) {
             this.currentInput = num;
             this.waitingForOperand = false;
-            this.calculationString = '';
+            // 計算過程は消さない
         } else {
             this.currentInput = this.currentInput === '0' ? num : this.currentInput + num;
         }
@@ -91,15 +91,14 @@ class Calculator {
             
             this.currentInput = String(newValue);
             this.previousInput = newValue;
-            this.calculationString = this.calculationString + ' ' + this.currentInput + ' ' + nextOperator;
-            this.updateDisplay();
+            this.calculationString = String(newValue) + ' ' + nextOperator;
         } else {
             this.calculationString = this.currentInput + ' ' + nextOperator;
         }
         
         this.waitingForOperand = true;
         this.operator = nextOperator;
-        this.updateCalculationDisplay();
+        this.updateDisplay();
     }
     
     calculate() {
@@ -112,7 +111,6 @@ class Calculator {
             this.previousInput = '';
             this.operator = '';
             this.waitingForOperand = true;
-            this.updateCalculationDisplay();
             this.updateDisplay();
         }
     }
@@ -165,22 +163,15 @@ class Calculator {
     }
     
     updateDisplay() {
-        // =が押されていない場合は計算過程のみ表示、結果は非表示
-        if (this.waitingForOperand && this.operator === '') {
-            // 計算完了後は結果を表示
-            let displayValue = this.currentInput;
-            if (displayValue.length > 10) {
-                displayValue = parseFloat(displayValue).toExponential(6);
-            }
-            this.display.textContent = displayValue;
-        } else {
-            // 計算中は現在の入力値を表示
-            let displayValue = this.currentInput;
-            if (displayValue.length > 10) {
-                displayValue = parseFloat(displayValue).toExponential(6);
-            }
-            this.display.textContent = displayValue;
+        // 計算過程を上部に表示
+        this.updateCalculationDisplay();
+        
+        // 結果を下部に表示
+        let displayValue = this.currentInput;
+        if (displayValue.length > 10) {
+            displayValue = parseFloat(displayValue).toExponential(6);
         }
+        this.display.textContent = displayValue;
     }
 }
 
