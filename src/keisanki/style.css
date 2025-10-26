@@ -160,6 +160,17 @@ body {
 /* 小数点ボタン - 深緑系 */
 .btn.number[data-value="."] { background: #4a6b4a; }
 
+/* ブランド名 */
+.brand-name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #b8c5a0;
+    margin-top: 15px;
+    text-shadow: 0 1px 2px rgba(45, 74, 45, 0.5);
+    letter-spacing: 1px;
+}
+
 /* 0ボタンを2倍幅にする */
 .btn.zero {
     flex: 2;
