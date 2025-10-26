@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Web計算機</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <!-- 計算結果表示画面 -->
+        <div class="display">
+            <div id="calculation" class="calculation-display"></div>
+            <div id="result" class="result-display">0</div>
+        </div>
+        
+        <!-- ボタンエリア -->
+        <div class="buttons">
+            <!-- 1列目: AC, %, ×, ÷ -->
+            <div class="button-row">
+                <button class="btn function" data-value="AC">AC</button>
+                <button class="btn function" data-value="%">%</button>
+                <button class="btn operator" data-value="×">×</button>
+                <button class="btn operator" data-value="÷">÷</button>
+            </div>
+            
+            <!-- 2列目: 7, 8, 9, + -->
+            <div class="button-row">
+                <button class="btn number" data-value="7">7</button>
+                <button class="btn number" data-value="8">8</button>
+                <button class="btn number" data-value="9">9</button>
+                <button class="btn operator" data-value="+">+</button>
+            </div>
+            
+            <!-- 3列目: 4, 5, 6, - -->
+            <div class="button-row">
+                <button class="btn number" data-value="4">4</button>
+                <button class="btn number" data-value="5">5</button>
+                <button class="btn number" data-value="6">6</button>
+                <button class="btn operator" data-value="-">-</button>
+            </div>
+            
+            <!-- 4列目: 1, 2, 3, = -->
+            <div class="button-row">
+                <button class="btn number" data-value="1">1</button>
+                <button class="btn number" data-value="2">2</button>
+                <button class="btn number" data-value="3">3</button>
+                <button class="btn equals" data-value="=">=</button>
+            </div>
+            
+            <!-- 5列目: 0, ., = (0を2倍幅で) -->
+            <div class="button-row">
+                <button class="btn number zero" data-value="0">0</button>
+                <button class="btn number" data-value=".">.</button>
+                <button class="btn equals" data-value="=">=</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
